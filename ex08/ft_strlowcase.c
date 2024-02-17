@@ -6,7 +6,7 @@
 /*   By: argrouss <argrouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 07:41:58 by argrouss          #+#    #+#             */
-/*   Updated: 2024/02/14 23:49:04 by argrouss         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:12:12 by argrouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,17 @@ int	main(void)
 	char test3[] = "58545459652545656158565";
 	char test4[] = "arnauddfkjsdjvbfsbgnvjkbnughsbdfvncxgvbdshujfandidgroussard";
 	char test5[] = "EDRGEWQSDGKLKJNHBBVCDWEDFDFGHG";
-	char test6[] = "Arnaud";
+	char test6[] = "ArnauDDDDDDDDDddddDDd";
 
 	printf("%s\n", ft_strlowcase(test1));
 	printf("%s\n", ft_strlowcase(test2));
 	printf("%s\n", ft_strlowcase(test3));
 	printf("%s\n", ft_strlowcase(test4));
 	printf("%s\n", ft_strlowcase(test5));
-	printf("%s\n", ft_strlowcase(test6));
+	printf("test6 : %s\n", test6);
+	ft_strlowcase(test6);
+	printf("test6 : apres : %s\n", test6);
+	printf("ft(test6) : %s\n", ft_strlowcase(test6));
+
 	return (0);
 }
