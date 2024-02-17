@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 char	*ft_strcapitalize(char *str);
 char	*ft_strlowcase(char *str);
@@ -108,35 +110,14 @@ char	*ft_strlowcase(char *str)
 	return (str);
 }
 
-// void	ft_putchar(char c)
+// int main()
 // {
-// 	write(1, &c, 1);
-// }
-// 
-// void	ft_putstr(char *str)
-// {
-// 	int	index;
-// 
-// 	index = 0;
-// 	while (str[index] != 0)
-// 	{
-// 		ft_putchar(str[index]);
-// 		index++;
-// 	}
-// }
-// 
-// int	main(void)
-// {
-// 	char	s1[] = "salut, coMMent tu vas ? 42mots quatre-deux; cinq+ET+un";
-// 	char	s2[] = "https://cdn.int.42.fr/12TE09/TE42/$@TE/42TE/fr.sub.pdf";
-// 	ft_putstr(s1);
-// 	ft_putchar(10);
+// 	char s1[100] = "salut, COmENT tu vas ? 42mots quare-deux; cinquante+et+un";
+// 	char s2[100] = "https://cdn.int.42.fr/12TE09/TE42/$@TE/42TE/fr.sub.pdf";
+// 	printf("%s\n",s1);
 // 	ft_strcapitalize(s1);
-// 	ft_putstr(s1);
-// 	ft_putchar(10);
-// 	ft_putchar(10);
-// 	ft_putstr(s2);
-// 	ft_putchar(10);
+// 	printf("%s\n",s1);
+// 	printf("%s\n",s2);
 // 	ft_strcapitalize(s2);
-// 	ft_putstr(s2);
+// 	printf("%s\n",s2);
 // }
