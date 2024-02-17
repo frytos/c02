@@ -30,7 +30,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 		dest[index] = src[index];
 		index++;
 	}
-	dest[index] = 0; 
+	dest[index] = 0;
 	return (src_len);
 }
 
