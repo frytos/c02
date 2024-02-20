@@ -15,39 +15,92 @@
 
 void    *ft_print_memory(void *addr, unsigned int size);
 void	ft_putstr(char *str);
-void	ft_putchar(char c);
+void	print_addr(void *addr, unsigned int offset_addr, unsigned int size);
+void	print_content_hex(char *addr, unsigned int offset_addr, unsigned int size);
+void	print_content_char(char *addr, unsigned int offset_addr, unsigned int size);
 
 void    *ft_print_memory(void *addr, unsigned int size)
 {
-    int offset_addr;
-    int lines;
-    int index_lines;
-
-    lines = size / 16 + 1;
-    index_lines = 0;
-
-    while (index_lines < lines)
-    {
-        printf("%p: ", addr + 16 * index_lines);
-        offset_addr = 0;
-        while (offset_addr < 16)
-        {
-            printf("%x%x ", *((char*)addr + offset_addr),  *((char*)addr + offset_addr + 1));
-            offset_addr += 2;
-        }
-        offset_addr = 0;
-        while (offset_addr < 16)
-        {
-            if (*(char*)addr < 32 && 122 < *(char*)addr)
-                ft_putchar('.');
-            else
-                ft_putchar(*(char*)addr);
-            offset_addr ++;
-        }
-        ft_putchar('\n');
-        index_lines++;
-    }
+    unsigned int offset_addr;
+    
+	offset_addr = 0;
+	while (offset_addr < size)
+	{
+		print_addr(addr, offset_addr, size);
+		print_content_hex((char*)addr, offset_addr, size);
+		print_content_char((char*)addr, offset_addr, size);
+		offset_addr += 16;
+	}
     return(addr);
+}
+
+void	print_addr(void *addr, unsigned int offset_addr, unsigned int size)
+{
+	unsigned long	addr_value;
+	char			hex_addr[16 + 1];
+	char			*hex_base;
+	int				index;
+
+	addr_value = (unsigned long)&addr[offset_addr];
+	hex_addr[16] = 0;
+	hex_base = "0123456789abcdef";
+	index = 0;
+	while (addr_value / 16 > 0)
+	{
+		hex_addr[15 - index] = hex_base[addr_value % 16];
+		addr_value = addr_value / 16;
+		index++;
+	}
+	hex_addr[15 - index] = hex_base[addr_value % 16];
+	index++;
+	while (index < 16)
+	{
+		hex_addr[15 - index] = '0';
+		index++;
+	}
+	ft_putstr(hex_addr);
+	ft_putstr(": ");
+}
+
+
+void	print_content_hex(char *addr, unsigned int offset_addr, unsigned int size)
+{
+	char			*hex_base;
+	unsigned int	index;
+	
+	hex_base = "0123456789abcdef  ";
+	index = 0;
+	while ((index < 16 && offset_addr + index < size) && addr[offset_addr + index] != 0)
+	{
+		write(1, &hex_base[*(addr + offset_addr + index) / 16], 1);
+		write(1, &hex_base[*(addr + offset_addr + index) % 16], 1);
+		if (index % 2 == 1)
+			write(1, " ", 1);
+		index++;
+	}
+	while (index < 16)
+	{
+		write(1, hex_base + 16, 2);
+		if (index % 2 == 1)
+			write(1, hex_base + 16, 1);
+		index++;
+	}
+}
+
+void	print_content_char(char *addr, unsigned int offset_addr, unsigned int size)
+{
+	unsigned int	index;
+	
+	index = 0;
+	while ((index < 16 && offset_addr + index < size) && addr[offset_addr + index] != 0)
+	{
+		if (*(addr + offset_addr + index) < 32 || 126 < *(addr + offset_addr + index))
+			write(1, ".", 1);
+		else
+			write(1, addr + offset_addr + index, 1);
+		index++;
+	}
+	write(1, "\n", 1);
 }
 
 void	ft_putstr(char *str)
@@ -57,23 +110,19 @@ void	ft_putstr(char *str)
 	index = 0;
 	while (str[index] != 0)
 	{
-		ft_putchar(str[index]);
+		write(1, &str[index], 1);
 		index++;
 	}
 }
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
 int	main(void)
 {
-	char	myString[] = "Hello, j'imprime de la memoire sur l'ordinateur";
-	ft_print_memory(&myString, 2);
+	char	myString[] = "Hello\nArnaud\t\t\t\nkikou, tranquillou bilou, y'a pas le feu au lac non plus,\n calme tes betes l'amigros\n";
+	ft_print_memory(myString, 112);
 
-    int a = 42;
-    int *ptr_to_a = &a;
-    ft_print_memory(ptr_to_a, 2);
+	// write(1, "\n\n", 2);
+    // int a = 42;
+    // int *ptr_to_a = &a;
+    // ft_print_memory(ptr_to_a, 2);
 }
 
