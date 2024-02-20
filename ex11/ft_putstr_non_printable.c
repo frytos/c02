@@ -23,21 +23,17 @@ void	ft_putstr_non_printable(char *str)
 {
 	int		index;
 	char	hex[3 + 1];
+	char	*hex_base;
 
 	index = 0;
+	hex_base = "0123456789abcdef";
 	while (str[index] != 0)
 	{
 		if (!ft_char_is_printable(str[index]))
 		{
 			hex[0] = '\\';
-			if (str[index] / 16 < 10)
-				hex[1] = str[index] / 16 + '0';
-			else
-				hex[1] = str[index] / 16 - 10 + 'a';
-			if (str[index] % 16 < 10)
-				hex[2] = str[index] % 16 + '0';
-			else
-				hex[2] = str[index] % 16 - 10 + 'a';
+			hex[1] = hex_base[str[index] / 16];
+			hex[2] = hex_base[str[index] % 16];
 			hex[3] = 0;
 			ft_putstr(hex);
 		}

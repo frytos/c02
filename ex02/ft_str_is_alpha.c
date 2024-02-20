@@ -19,34 +19,32 @@ int ft_str_is_alpha(char *str)
 	int	index;
 
 	if (str[0] == 0)
-	{
 		return (1);
-	}
 	index = 0;
 	while (str[index] != 0)
 	{
-		if ((str[index] >= 65 && str[index] <= 90) || (str[index] >= 97 && str[index] <= 122))
-		{
+		if (('A' <= str[index] && str[index] <= 'Z') || ('a' <= str[index] && str[index] <= 'z'))
 			index++;
-		}
 		else
-		{
 			return (0);
-		}
 	}
 	return (1);
 }
 
-int	main(void)
-{
-	char test1[] = "asdkjadfiuhdsaf6832irfu9yschuwf7893y2rf97uhvuiwhf";
-	char test2[] = "";
-	char test3[] = "arnaud groussard";
-	char test4[] = "arnauddfkjsdjvbfsbgnvjkbnughsbdfvncxgvbdshujfandidgroussard";
-
-	printf("%d\n", ft_str_is_alpha(test1));
-	printf("%d\n", ft_str_is_alpha(test2));
-	printf("%d\n", ft_str_is_alpha(test3));
-	printf("%d\n", ft_str_is_alpha(test4));
-	return (0);
-}
+// int	main(void)
+// {
+// 	char test1[] = "asdkjadfiuhdsaf6832irfu9yschuwf7893y2rf97uhvuiwhf";
+// 	char test2[] = "";
+// 	char test3[] = "arnaud groussard";
+// 	char test4[] = "arnauddfkjsdjvbfsbgnvjkbnughsbdfvncxgvbdshujfandidgroussard";
+// 	printf("%d\n", ft_str_is_alpha(test1));
+// 	printf("%d\n", ft_str_is_alpha(test2));
+// 	printf("%d\n", ft_str_is_alpha(test3));
+// 	printf("%d\n", ft_str_is_alpha(test4));
+// 	return (0);
+// }
+// #include <stdio.h>
+// int main(int argc, char **argv)
+// {
+//     printf("%d",ft_str_is_alpha(argv[argc - 1]));
+// }

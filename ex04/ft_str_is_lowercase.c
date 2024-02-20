@@ -12,41 +12,38 @@
 
 #include <stdio.h>
 
-int ft_str_is_lowercase(char *str);
+int	ft_str_is_lowercase(char *str);
 
-int ft_str_is_lowercase(char *str)
+int	ft_str_is_lowercase(char *str)
 {
 	int	index;
 
 	if (str[0] == 0)
-	{
 		return (1);
-	}
 	index = 0;
 	while (str[index] != 0)
 	{
-		if (str[index] >=97 && str[index] <= 122)
-		{
+		if ('a' <= str[index] && str[index] <= 'z')
 			index++;
-		}
 		else
-		{
 			return (0);
-		}
 	}
 	return (1);
 }
 
-int	main(void)
-{
-	char test1[] = "asdkjadfiuhdsaf6832irfu9yschuwf7893y2rf97uhvuiwhf";
-	char test2[] = "";
-	char test3[] = "58545459652545656158565";
-	char test4[] = "arnauddfkjsdjvbfsbgnvjkbnughsbdfvncxgvbdshujfandidgroussard";
-
-	printf("%d\n", ft_str_is_lowercase(test1));
-	printf("%d\n", ft_str_is_lowercase(test2));
-	printf("%d\n", ft_str_is_lowercase(test3));
-	printf("%d\n", ft_str_is_lowercase(test4));
-	return (0);
-}
+// int	main(void)
+// {
+// 	char test1[] = "asdkjadfiuhdsaf6832irfu9yschuwf7893y2rf97uhvuiwhf";
+// 	char test2[] = "";
+// 	char test3[] = "58545459652545656158565";
+// 	char test4[] = "arnauddfkjsdjvbfsbgnvjkbnSroussard";
+// 	printf("%d\n", ft_str_is_lowercase(test1));
+// 	printf("%d\n", ft_str_is_lowercase(test2));
+// 	printf("%d\n", ft_str_is_lowercase(test3));
+// 	printf("%d\n", ft_str_is_lowercase(test4));
+// 	return (0);
+// }
+// int	main(int argc, char **argv)
+// {
+// 	printf("%d", ft_str_is_lowercase(argv[argc - 1]));
+// }

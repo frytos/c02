@@ -28,23 +28,28 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-int main(void)
-{
-	char source1[] = "arnaud";
-	char dest1[] = "GROUSSARD";
-	printf("%s\n", source1);
-	printf("%s\n", dest1);
-	printf("%s\n", ft_strcpy(dest1, source1));
+// int main(void)
+// {
+// 	char source1[] = "arnaud";
+// 	char dest1[] = "GROUSSARD";
+// 	printf("s1 : %s\n", source1);
+// 	printf("d1 : %s\n", dest1);
+// 	printf("ft_strcpy(dest1, source1) : %s\n", ft_strcpy(dest1, source1));
 
-	char source2[] = "groussard";
-	char dest2[] = "ARNAUD";
-	printf("%s\n", source2);
-	printf("%s\n", dest2);
-	printf("%s\n", ft_strcpy(dest2, source2));
+// 	char source2[] = "groussard";
+// 	char dest2[] = "ARNAUD";
+// 	printf("s2 : %s\n", source2);
+// 	printf("d2 : %s\n", dest2);
+// 	printf("ft_strcpy(dest2, source2) : %s\n", ft_strcpy(dest2, source2));
 
-	//char *source2 = "Arnaud";
-	//char *dest2 = "GROUSSARD";
-	//printf("%s\n", source2);
-	//printf("%s\n", dest2);
-	//printf("%s\n", ft_strcpy(dest2, source2));
-}
+// 	char *str = "bonjour a tous";
+//     char str2[15];
+//     ft_strcpy(str2,str);
+//     printf("str2 :%s",str2);
+
+// 	// char *source2 = "Arnaud";
+// 	// char *dest2 = "GROUSSARD";
+// 	// printf("%s\n", source2);
+// 	// printf("%s\n", dest2);
+// 	// printf("%s\n", ft_strcpy(dest2, source2));
+// }
