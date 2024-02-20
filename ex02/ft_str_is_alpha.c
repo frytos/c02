@@ -12,9 +12,9 @@
 
 #include <stdio.h>
 
-int ft_str_is_alpha(char *str);
+int	ft_str_is_alpha(char *str);
 
-int ft_str_is_alpha(char *str)
+int	ft_str_is_alpha(char *str)
 {
 	int	index;
 
@@ -23,7 +23,8 @@ int ft_str_is_alpha(char *str)
 	index = 0;
 	while (str[index] != 0)
 	{
-		if (('A' <= str[index] && str[index] <= 'Z') || ('a' <= str[index] && str[index] <= 'z'))
+		if (('A' <= str[index] && str[index] <= 'Z')
+			|| ('a' <= str[index] && str[index] <= 'z'))
 			index++;
 		else
 			return (0);
@@ -31,19 +32,18 @@ int ft_str_is_alpha(char *str)
 	return (1);
 }
 
-// int	main(void)
-// {
-// 	char test1[] = "asdkjadfiuhdsaf6832irfu9yschuwf7893y2rf97uhvuiwhf";
-// 	char test2[] = "";
-// 	char test3[] = "arnaud groussard";
-// 	char test4[] = "arnauddfkjsdjvbfsbgnvjkbnughsbdfvncxgvbdshujfandidgroussard";
-// 	printf("%d\n", ft_str_is_alpha(test1));
-// 	printf("%d\n", ft_str_is_alpha(test2));
-// 	printf("%d\n", ft_str_is_alpha(test3));
-// 	printf("%d\n", ft_str_is_alpha(test4));
-// 	return (0);
-// }
-// #include <stdio.h>
+int	main(void)
+{
+	char test1[] = "AERT";
+	char test2[] = "";
+	char test3[] = "arnaud groussard";
+	char test4[] = "arnauddfkjsdjvbfsbgnvjkbnvbdshujfandidgroussard";
+	printf("%d\n", ft_str_is_alpha(test1));
+	printf("%d\n", ft_str_is_alpha(test2));
+	printf("%d\n", ft_str_is_alpha(test3));
+	printf("%d\n", ft_str_is_alpha(test4));
+	return (0);
+}
 // int main(int argc, char **argv)
 // {
 //     printf("%d",ft_str_is_alpha(argv[argc - 1]));
