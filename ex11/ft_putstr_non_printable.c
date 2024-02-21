@@ -29,11 +29,11 @@ void	ft_putstr_non_printable(char *str)
 	hex_base = "0123456789abcdef";
 	while (str[index] != 0)
 	{
-		if (!ft_char_is_printable(str[index]))
+		if (!ft_char_is_printable((unsigned char)str[index]))
 		{
 			hex[0] = '\\';
-			hex[1] = hex_base[str[index] / 16];
-			hex[2] = hex_base[str[index] % 16];
+			hex[1] = hex_base[(unsigned char)str[index] / 16];
+			hex[2] = hex_base[(unsigned char)str[index] % 16];
 			hex[3] = 0;
 			ft_putstr(hex);
 		}
