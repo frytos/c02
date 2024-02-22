@@ -74,17 +74,19 @@ void	print_content_hex(char *addr, unsigned int offset_addr,
 	index = 0;
 	while (index < 16 && offset_addr + index < size)
 	{
-		write(1, &hex_base[*(addr + offset_addr + index) / 16], 1);
-		write(1, &hex_base[*(addr + offset_addr + index) % 16], 1);
+		write(1, &hex_base
+		[(unsigned char)*(addr + offset_addr + index) / 16], 1);
+		write(1, &hex_base
+		[(unsigned char)*(addr + offset_addr + index) % 16], 1);
 		if (index % 2 == 1)
 			write(1, " ", 1);
 		index++;
 	}
 	while (index < 16)
 	{
-		write(1, hex_base + 16, 2);
+		write(1, "  ", 2);
 		if (index % 2 == 1)
-			write(1, hex_base + 16, 1);
+			write(1, " ", 1);
 		index++;
 	}
 }
@@ -97,8 +99,8 @@ void	print_content_char(char *addr, unsigned int offset_addr,
 	index = 0;
 	while (index < 16 && offset_addr + index < size)
 	{
-		if (*(addr + offset_addr + index) < 32 || 126 < *(addr + offset_addr
-				+ index))
+		if ((unsigned char)*(addr + offset_addr + index) < 32
+			|| 126 < (unsigned char)*(addr + offset_addr + index))
 			write(1, ".", 1);
 		else
 			write(1, addr + offset_addr + index, 1);
@@ -121,11 +123,9 @@ void	ft_putstr(char *str)
 
 // int	main(void)
 // {
-// 	char	my_string[160] = "Hello\tPadawan\n\n\nkikou, tranquillou bilou.\n"
-// 		"Y'a pas le feu au lac Jean-Jacques !\n"
-// 		"Calme tes betes Huguette\n\n\n";
+// 	char	my_string[160] = "Hi\t JACK\0 SPARROW\n";
 
 // 	printf("%s", my_string);
 
-// 	ft_print_memory(my_string, 160);
+// 	ft_print_memory(my_string, 16000);
 // }
